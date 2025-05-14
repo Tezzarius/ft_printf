@@ -6,7 +6,7 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 10:32:57 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/08 14:52:11 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/14 16:40:36 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,14 @@
 
 int	ft_print_pointer(void *ptr)
 {
-	char	*c;
+	unsigned long	*c;
 
-	c = (char *)&ptr;
+	if (!ptr)
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
+	c = &ptr;
 	ft_print_string(c);
 	return (0);
 }

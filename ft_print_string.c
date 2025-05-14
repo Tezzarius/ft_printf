@@ -6,7 +6,7 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 15:01:02 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/08 15:35:44 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/14 16:38:43 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ int	ft_print_string(char *str)
 	int	i;
 
 	if (!*str)
-		return (0);
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	i = 0;
 	while (str[i])
 		write(1, str[i++], 1);
