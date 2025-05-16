@@ -6,7 +6,7 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 15:01:02 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/14 16:38:43 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/16 10:22:01 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int	ft_print_string(char *str)
 	}
 	i = 0;
 	while (str[i])
-		write(1, str[i++], 1);
+		write(1, &str[i++], 1);
 	return (i);
 }

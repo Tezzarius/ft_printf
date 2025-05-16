@@ -6,13 +6,13 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 14:58:39 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/08 15:40:40 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/16 10:30:49 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_print_char(char c)
+int	ft_print_char(int c)
 {
 	if (!c)
 		return (0);

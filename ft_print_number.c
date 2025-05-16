@@ -6,7 +6,7 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 15:05:50 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/08 15:35:41 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/16 10:21:15 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ int	ft_print_number(int n)
 	int		i;
 	char	*fin;
 
-	if (!n)
-		return (0);
-
 	fin = ft_itoa(n);
+	if (!fin)
+		return (0);
 	i = 0;
 	while (fin[i])
-		write(1, fin[i++], 1);
+		write(1, &fin[i++], 1);
+	free (fin);
 	return (i);
 }

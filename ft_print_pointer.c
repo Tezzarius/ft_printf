@@ -6,7 +6,7 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 10:32:57 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/14 16:40:36 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/16 10:42:38 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,27 @@
 
 int	ft_print_pointer(void *ptr)
 {
-	unsigned long	*c;
+	unsigned long	c;
 
 	if (!ptr)
 	{
 		write(1, "(nil)", 5);
 		return (5);
 	}
-	c = &ptr;
-	ft_print_string(c);
+	c = (unsigned long) ptr;
+	write(1, "0x", 2);
+	ft_print_hex(c, 'x');
 	return (0);
 }
 
-#include <stdio.h>
+/* #include <stdio.h>
 
 int main()
 {
 	char	*ptr;
 
-	ptr = "Test";
+	ptr = "Testsubject";
 	printf("%p\n", ptr);
 	ft_print_pointer(ptr);
 	return (0);
-}
+} */
