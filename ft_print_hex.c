@@ -6,11 +6,11 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 11:21:39 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/16 14:25:29 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/16 14:32:41 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static void	print_digit(unsigned int n, const char x)
 {

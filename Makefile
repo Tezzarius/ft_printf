@@ -1,5 +1,3 @@
-#include libft/Makefile
-
 NAME = libftprintf.a
 
 LIBFT_DIR = libft
@@ -10,7 +8,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-HEADER = libftprintf.h
+HEADER = ft_printf.h
 
 SRC = 	./ft_print_char.c\
 		./ft_print_hex.c\
@@ -25,7 +23,8 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-	ar rcs -o $(NAME) $(OBJ) $(LIBFT)
+	cp $(LIBFT) $(NAME)
+	ar rcs $(NAME) $(OBJ)
 
 $(LIBFT):
 	make -C $(LIBFT_DIR)

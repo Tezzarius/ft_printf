@@ -6,11 +6,11 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 15:05:50 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/16 11:58:18 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/16 14:33:18 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include <unistd.h>
 
 static void	ft_output_unsigned_decimal(unsigned int n)

@@ -6,21 +6,25 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 10:46:07 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/16 13:16:56 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/16 14:52:53 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include <stdio.h>
 
 int main()
 {
-	void	*ptr = NULL;
-	char	c;
-	char	*s = NULL;
-	int		n = 98767453;
+	void	*ptr;
+	char	c = 'A';
+	char	*s = "Teststring";
+	int		n = -9876545;
 	int		i;
 
+	i = ft_printf("FT: Tabula Rasa\n");
+	printf("%d\n", i);
+	i = printf("OG: Tabula Rasa\n");
+	printf("%d\n\n", i);
 	i = ft_printf("FT_char: %c\n", c);
 	printf("%d\n", i);
 	i = printf("OG_char: %c\n", c);
