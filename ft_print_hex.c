@@ -6,20 +6,20 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 11:21:39 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/16 11:58:41 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/16 14:25:29 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static void	print_digit(int n, const char x)
+static void	print_digit(unsigned int n, const char x)
 {
 	char	*baselow;
 	char	*baseupp;
 
 	baselow = "0123456789abcdef";
 	baseupp = "0123456789ABCDEF";
-	if (n > 16)
+	if (n >= 16)
 		print_digit(n / 16, x);
 	if (x == 'x')
 		ft_print_char(baselow[n % 16]);
@@ -27,9 +27,9 @@ static void	print_digit(int n, const char x)
 		ft_print_char(baseupp[n % 16]);
 }
 
-int	ft_print_hex(int n, const char x)
+int	ft_print_hex(unsigned int n, const char x)
 {
-	int	i;
+	unsigned int	i;
 
 	if (!n)
 		return (ft_print_number(n));

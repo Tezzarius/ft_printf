@@ -6,7 +6,7 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:26:04 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/16 10:30:56 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/16 14:25:48 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdarg.h>
 
 int	ft_print_char(int c);
-int	ft_print_hex(int n, const char x);
+int	ft_print_hex(unsigned int n, const char x);
 int	ft_print_number(int n);
 int	ft_print_pointer(void *ptr);
 int	ft_print_string(char *str);
