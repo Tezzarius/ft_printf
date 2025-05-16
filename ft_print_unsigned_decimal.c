@@ -6,7 +6,7 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 15:05:50 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/08 15:09:03 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/16 11:58:18 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_print_unsigned_decimal(unsigned int n)
 	unsigned int		tmp;
 
 	if (!n)
-		return (0);
+		return (ft_print_number(n));
 	i = 0;
 	tmp = n;
 	while (tmp > 0)

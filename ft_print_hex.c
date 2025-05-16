@@ -6,7 +6,7 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 11:21:39 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/08 15:39:51 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/16 11:58:41 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_print_hex(int n, const char x)
 	int	i;
 
 	if (!n)
-		return (0);
+		return (ft_print_number(n));
 	print_digit(n, x);
 	i = 0;
 	while (n > 0)

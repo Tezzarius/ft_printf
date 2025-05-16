@@ -6,34 +6,34 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:31:11 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/16 10:33:36 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/16 12:53:31 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_check(va_list args, const char c)
+int	ft_check(va_list args, const char format)
 {
 	int	i;
 
 	i = 0;
-	if (c == 'c')
+	if (format == 'c')
 		i += ft_print_char(va_arg(args, int));
-	else if (c == 's')
+	else if (format == 's')
 		i += ft_print_string(va_arg(args, char *));
-	else if (c == 'p')
+	else if (format == 'p')
 		i += ft_print_pointer(va_arg(args, void *));
-	else if (c == 'd')
+	else if (format == 'd')
 		i += ft_print_number(va_arg(args, int));
-	else if (c == 'i')
+	else if (format == 'i')
 		i += ft_print_number(va_arg(args, int));
-	else if (c == 'u')
-		i += ft_print_unsigned_decimal(va_arg(args, int));
-	else if (c == 'x')
+	else if (format == 'u')
+		i += ft_print_unsigned_decimal(va_arg(args, unsigned int));
+	else if (format == 'x')
 		i += ft_print_hex(va_arg(args, int), 'x');
-	else if (c == 'X')
+	else if (format == 'X')
 		i += ft_print_hex(va_arg(args, int), 'X');
-	else if (c == '%')
+	else if (format == '%')
 	{
 		write(1, "%", 1);
 		i++;
@@ -56,15 +56,12 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%' && str[i + 1] != '\0')
 		{
-
-			count += ft_check(args, str[i + 1]);
 			i++;
+			count += ft_check(args, str[i]);
 		}
 		else
-		{
 			count += ft_print_char(str[i]);
-			i++;
-		}
+		i++;
 	}
 	va_end(args);
 	return (count);

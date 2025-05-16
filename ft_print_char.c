@@ -6,7 +6,7 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 14:58:39 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/16 10:30:49 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/16 13:16:01 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 int	ft_print_char(int c)
 {
-	if (!c)
-		return (0);
 	write(1, &c, 1);
 	return (1);
 }
-
