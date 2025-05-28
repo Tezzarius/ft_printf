@@ -6,7 +6,7 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:31:11 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/26 16:03:19 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/28 11:06:29 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_printf(const char *str, ...)
 	int		count;
 	va_list	args;
 
-	if (!*str)
+	if (str == NULL || !str)
 		return (-1);
 	va_start(args, str);
 	i = 0;
