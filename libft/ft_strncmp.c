@@ -6,13 +6,15 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 13:07:47 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/04/30 13:41:51 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/20 17:03:39 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+#include "libft.h"
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned int	i;
+	size_t	i;
 
 	if (n == 0)
 		return (0);
@@ -23,21 +25,3 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	}
 	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 }
-
-/* #include <stdio.h>
-#include <string.h>
-
-int main()
-{
-	printf("FT: %d\n", ft_strncmp("Tabula Rasa", "Tabula Rasa", 5));
-	printf("OG: %d\n\n", strncmp("Tabula Rasa", "Tabula Rasa", 5));
-	printf("FT: %d\n", ft_strncmp("Tabula Rasa", "TabuLa Rasa", 5));
-	printf("OG: %d\n\n", strncmp("Tabula Rasa", "TabuLa Rasa", 5));
-	printf("FT: %d\n", ft_strncmp("Tabula Rasa", "Tabuda Rasa", 5));
-	printf("OG: %d\n\n", strncmp("Tabula Rasa", "Tabuda Rasa", 5));
-	printf("FT: %d\n", ft_strncmp("Tab", "Tabula Rasa", 5));
-	printf("OG: %d\n\n", strncmp("Tab", "Tabula Rasa", 5));
-	printf("FT: %d\n", ft_strncmp("atoms\0\0\0\0", "atoms\0abc", 8));
-	printf("OG: %d\n", strncmp("atoms\0\0\0\0", "atoms\0abc", 8));
-	return(0);
-} */

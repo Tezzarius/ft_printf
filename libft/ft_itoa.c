@@ -6,13 +6,13 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 10:54:35 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/03 11:38:03 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/20 17:00:40 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_dlen(int n)
+static int	ft_dlen(int n)
 {
 	int	len;
 
@@ -32,11 +32,11 @@ int	ft_dlen(int n)
 	return (len);
 }
 
-char	*fillstr(int n)
+static char	*fillstr(int n)
 {
-	int		i;
-	int		len;
-	char	*fin;
+	size_t		i;
+	size_t		len;
+	char		*fin;
 
 	i = 0;
 	len = ft_dlen(n);
@@ -69,20 +69,6 @@ char	*ft_itoa(int n)
 		return (ft_strdup("-2147483648"));
 	fin = fillstr(n);
 	if (!fin)
-		(NULL);
+		return (NULL);
 	return (fin);
 }
-
-/* #include <stdio.h>
-
-int main()
-{
-	char *i1 = ft_itoa(-623);
-	char *i2 = ft_itoa(2147483647);
-	char *i3 = ft_itoa(-1234);
-
-	printf("%s\n", i1);
-	printf("%s\n", i2);
-	printf("%s\n", i3);
-	return (0);
-} */

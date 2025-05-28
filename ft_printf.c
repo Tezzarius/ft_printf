@@ -6,11 +6,16 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 12:31:11 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/16 14:33:25 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/26 16:03:19 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_print_char(int c)
+{
+	return (write(1, &c, 1));
+}
 
 int	ft_check(va_list args, const char format)
 {
@@ -23,21 +28,12 @@ int	ft_check(va_list args, const char format)
 		i += ft_print_string(va_arg(args, char *));
 	else if (format == 'p')
 		i += ft_print_pointer(va_arg(args, void *));
-	else if (format == 'd')
+	else if (format == 'd' || format == 'i')
 		i += ft_print_number(va_arg(args, int));
-	else if (format == 'i')
-		i += ft_print_number(va_arg(args, int));
-	else if (format == 'u')
-		i += ft_print_unsigned_decimal(va_arg(args, unsigned int));
-	else if (format == 'x')
-		i += ft_print_hex(va_arg(args, int), 'x');
-	else if (format == 'X')
-		i += ft_print_hex(va_arg(args, int), 'X');
+	else if (format == 'x' || format == 'X' || format == 'u')
+		i += ft_print_hex(va_arg(args, unsigned int), format);
 	else if (format == '%')
-	{
-		write(1, "%", 1);
-		i++;
-	}
+		i += write(1, "%", 1);
 	return (i);
 }
 

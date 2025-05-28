@@ -10,13 +10,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 HEADER = ft_printf.h
 
-SRC = 	./ft_print_char.c\
-		./ft_print_hex.c\
-		./ft_print_number.c\
-		./ft_print_pointer.c\
-		./ft_print_string.c\
-		./ft_print_unsigned_decimal.c\
-		./ft_printf.c
+SRC = 	./ft_printf.c\
+		./ft_printf_utils.c
 
 OBJ = $(SRC:.c=.o)
 

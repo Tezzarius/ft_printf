@@ -6,64 +6,47 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 14:10:22 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/02 10:52:44 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/20 17:02:58 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_wordcount(char const *s, int c)
+static int	free_array(char **arr, int count)
+{
+	while (--count >= 0)
+		free(arr[count]);
+	free(arr);
+	return (0);
+}
+
+static int	ft_wordcount(char const *s, int c)
 {
 	int	count;
-	int	sw;
-	int	i;
+	int	in_word;
 
-	i = 0;
-	sw = 0;
 	count = 0;
-	while (s[i])
+	in_word = 0;
+	while (*s)
 	{
-		if (s[i] != c && sw != 1)
+		if (*s != c && !in_word)
 		{
 			count++;
-			sw = 1;
+			in_word = 1;
 		}
-		else if (s[i] == c)
-			sw = 0;
-		i++;
+		else if (*s == c)
+			in_word = 0;
+		s++;
 	}
 	return (count);
 }
 
-char	*ft_strndup(char const *src, int n)
+static int	fillarray(char **dest, const char *s, char c)
 {
-	int		i;
-	char	*dest;
-
-	dest = (char *)malloc((n + 1) * sizeof(char));
-	if (!dest)
-		return (NULL);
-	i = 0;
-	while (src[i] && i < n)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-char	**fillarray(char const *s, char c)
-{
-	char	**dest;
 	int		i;
 	int		j;
 	int		start;
 
-	dest = malloc((ft_wordcount(s, c) + 1) * sizeof(char *));
-	if (!dest)
-		return (NULL);
-	start = 0;
 	j = 0;
 	i = 0;
 	while (s[i])
@@ -73,13 +56,16 @@ char	**fillarray(char const *s, char c)
 			start = i;
 			while (s[i] && s[i] != c)
 				i++;
-			dest[j++] = ft_strndup(&s[start], i - start);
+			dest[j] = ft_substr(s, start, i - start);
+			if (!dest[j])
+				return (free_array(dest, j));
+			j++;
 		}
 		else
 			i++;
 	}
 	dest[j] = NULL;
-	return (dest);
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
@@ -88,23 +74,10 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	dest = fillarray(s, c);
+	dest = malloc((ft_wordcount(s, c) + 1) * sizeof(char *));
 	if (!dest)
+		return (NULL);
+	if (!fillarray(dest, s, c))
 		return (NULL);
 	return (dest);
 }
-
-/* #include <stdio.h>
-
-int main()
-{
-	char *string = "      split       this for   me  !       ";
-	char **result = ft_split(string, ' ');
-	printf("%s\n", result[0]);
-	printf("%s\n", result[1]);
-	printf("%s\n", result[2]);
-	printf("%s\n", result[3]);
-	printf("%s\n", result[4]);
-	printf("%s\n", result[5]);
-	return (0);
-} */

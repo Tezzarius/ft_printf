@@ -6,13 +6,13 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 11:05:50 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/02 10:29:04 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/20 17:03:56 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_check(char const src, char const *set)
+static int	ft_check(char const src, char const *set)
 {
 	int	i;
 
@@ -20,44 +20,36 @@ int	ft_check(char const src, char const *set)
 	while (set[i])
 	{
 		if (src == set[i])
-			return (0);
+			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*dest;
-	int		len;
-	int		i;
+	int		start;
+	int		end;
 	int		j;
 
 	if (!s1)
 		return (NULL);
-	len = ft_strlen((char *)s1);
-	i = 0;
-	while (s1[i] && !ft_check(s1[i], set))
-		i++;
-	while (len != 0 && !ft_check(s1[len - 1], set))
-		len--;
-	if (i > len)
+	end = ft_strlen((char *)s1);
+	start = 0;
+	while (s1[start] && ft_check(s1[start], set))
+		start++;
+	while (end != 0 && ft_check(s1[end - 1], set))
+		end--;
+	if (start > end)
 		dest = malloc(1 * sizeof(char));
 	else
-		dest = malloc((len - i + 1) * sizeof(char));
+		dest = malloc((end - start + 1) * sizeof(char));
 	if (!dest)
 		return (NULL);
 	j = 0;
-	while (s1[i] && i < len)
-		dest[j++] = s1[i++];
+	while (s1[start] && start < end)
+		dest[j++] = s1[start++];
 	dest[j] = '\0';
 	return (dest);
 }
-
-/* int main()
-{
-	char *s1 = "  \t \t \n   \n\n\n\t";
-	//char *s2 = "  \t \t \n Hello \t  Please\n Trim me ! \n\n\n\t";
-	ft_strtrim(s1, " \n\t");
-	return (0);
-} */

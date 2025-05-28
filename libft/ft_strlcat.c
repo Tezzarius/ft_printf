@@ -6,42 +6,30 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 09:24:30 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/01 10:38:13 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/05/20 17:03:18 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlcat(char *dest, char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	dl;
-	size_t	sl;
+	size_t	dstlen;
+	size_t	srclen;
 	size_t	i;
 
-	sl = ft_strlen(src);
-	dl = 0;
-	while (dl < size && dest[dl])
-		dl++;
-	if (dl == size)
-		return (dl + sl);
+	srclen = ft_strlen(src);
+	dstlen = 0;
+	while (dstlen < size && dst[dstlen])
+		dstlen++;
+	if (dstlen == size)
+		return (dstlen + srclen);
 	i = 0;
-	while (src[i] && (dl + i + 1) < size)
+	while (src[i] && (dstlen + i + 1) < size)
 	{
-		dest[dl + i] = src[i];
+		dst[dstlen + i] = src[i];
 		i++;
 	}
-	dest[dl + i] = '\0';
-	return (dl + sl);
+	dst[dstlen + i] = '\0';
+	return (dstlen + srclen);
 }
-
-/* #include <stdio.h>
-#include <string.h>
-
-int main()
-{
-	char str[14] = "i";
-
-	printf("%d\n", ft_strlcat(str, " don't know what i should write....", 15));
-	printf("%s\n", str);
-	return (0);
-} */
