@@ -6,18 +6,21 @@
 /*   By: bschwarz <bschwarz@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 10:46:07 by bschwarz          #+#    #+#             */
-/*   Updated: 2025/05/28 09:47:11 by bschwarz         ###   ########.fr       */
+/*   Updated: 2025/06/04 19:24:38 by bschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
+#include <limits.h>
 
 int	main()
 {
 	void	*ptr;
+	void	*ptr2 = NULL;
 	char	*s = "Teststring";
-	int		n = -9876545;
+	char	*t = NULL;
+	int		n = INT_MIN;
 	int		i;
 
 	i = ft_printf("FT: Tabula Rasa ");
@@ -59,6 +62,24 @@ int	main()
 	i = ft_printf("FT_symbol: %% ");
 	printf("%d\n", i);
 	i = printf("OG_symbol: %% ");
+	printf("%d\n\n", i);
+	printf("FT_empty: ");
+	i = ft_printf("");
 	printf("%d\n", i);
+	printf("OG_empty: ");
+	i = printf("");
+	printf("%d\n\n", i);
+	i = ft_printf("FT_mix: %s, %x, %p ", s, n, ptr);
+	printf("%d\n", i);
+	i = printf("OG_mix: %s, %x, %p ", s, n, ptr);
+	printf("%d\n\n", i);
+	i = ft_printf("FT_same: %s, %s, %s ", s, s, s);
+	printf("%d\n", i);
+	i = printf("OG_same: %s, %s, %s ", s, s, s);
+	printf("%d\n\n", i);
+	i = ft_printf("FT_null: %s, %p ", t, ptr2);
+	printf("%d\n", i);
+	i = printf("OG_null: %s, %p ", t, ptr2);
+	printf("%d\n\n", i);
 	return (0);
 }
